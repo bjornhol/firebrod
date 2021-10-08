@@ -1,0 +1,30 @@
+.Stars {
+    min-width: 10rem;
+    display: flex;    
+}
+
+@media screen and (max-width: 768px) {
+    .Stars{
+        flex-direction: column;
+    }
+}
+
+.Stars-label{
+    flex: 1;
+    font-weight: 350;
+    font-size: medium;
+}
+
+.Stars-stars{
+    flex: 1;
+}
+
+.Stars-stars > svg {
+    margin-right: .5rem;
+    color: rgb(228, 225, 225);
+}
+
+.Stars-stars > svg.picked {
+    margin-right: .5rem;
+    color: rgb(204, 157, 96);
+}
