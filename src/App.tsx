@@ -9,18 +9,24 @@ import './App.css';
 import { CounterApp } from './CounterApp';
 import { Home } from './Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { grytebrod, havreflette } from './oppskrifter';
+import OppskriftLang from './components/OppskriftLang';
+import { routerPaths } from './router.path';
 
 function App() {
   return (
     <Router>
     <div>
       <ul>
-        <li>
+        <li key="a123">
           <Link to="/">Home</Link>
         </li>
-        <li>
-          <Link to="/counterapp">Counter app</Link>
-        </li>        
+        <li key="b456">
+          <Link to={routerPaths.grytebrod}>Grytebrød</Link>
+        </li>
+        <li key="c789">
+          <Link to={routerPaths.havreflette}>Havreflette</Link>
+        </li>
       </ul>
 
       <hr />
@@ -36,9 +42,12 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/counterapp">
-          <CounterApp />
-        </Route>        
+        <Route path={routerPaths.grytebrod}>
+          <OppskriftLang oppskrift={grytebrod} />
+        </Route>
+        <Route path={routerPaths.havreflette}>
+          <OppskriftLang oppskrift={havreflette} />
+        </Route>
       </Switch>
     </div>
   </Router>
