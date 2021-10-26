@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { OppskriftIngredienser } from "./OppskriftIngredienser";
 import { OppskriftProps } from "./OppskriftTypes";
-import { Stars } from "./Stars";
+import Stars from "./Stars";
 
 export default function OppskriftCard({
   oppskrift,
@@ -20,20 +20,26 @@ export default function OppskriftCard({
   return (
     <Card>
       <Card.Body>
-        <Card.Title>{oppskrift.title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">
-          {oppskrift.subTitle}
-        </Card.Subtitle>
+        <Row>
+          <Col>
+            <Card.Title>{oppskrift.title}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">
+              {oppskrift.subTitle}
+            </Card.Subtitle>
+          </Col>
+          <Col>
+              <Stars {...oppskrift.scores} />            
+          </Col>
+        </Row>
+        <br/>
         <Card.Text>{oppskrift.summary}</Card.Text>
-        <Stars score={oppskrift.scores.lettvint} label="Lettvint" />
-          <Stars score={oppskrift.scores.tidsbruk} label="Lite tidsbruk" />
-          <Stars score={oppskrift.scores.oppvask} label="Lite oppvask" />
-          <Stars score={oppskrift.scores.holdbarhet} label="Holdbarhet" />
-          <Stars score={oppskrift.scores.barnevennlig} label="Barnevennlig" />
-
-          {visIngredienser ? (
-            <OppskriftIngredienser oppskrift={oppskrift} />
-          ) : null}
+        <br />
+        {visIngredienser ? (
+          <OppskriftIngredienser
+            oppskrift={oppskrift}
+            toggleVisIngredienser={visIngredienserClick}
+          />
+        ) : null}
         <Card.Link href="#" onClick={visIngredienserClick}>
           {visIngredienser ? "Skjul" : "Vis"} ingredienser
         </Card.Link>

@@ -1,7 +1,9 @@
-import { Card, Col, Row } from "react-bootstrap";
-import { OppskriftPicture, OppskriftProps, OppskriftStep } from "./OppskriftTypes";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { OppskriftPictureProps, OppskriftProps, OppskriftStep } from "./OppskriftTypes";
+import Stars from "./Stars";
 
-function RenderOppskriftPicture({picture}: {picture: OppskriftPicture}){
+
+const RenderOppskriftPicture = (picture: OppskriftPictureProps) => {
     return (
         <Card>
             <Card.Img variant='top' src={picture.path}></Card.Img>
@@ -12,28 +14,39 @@ function RenderOppskriftPicture({picture}: {picture: OppskriftPicture}){
     );
 }
 
-function RenderOppskriftStep({step}: {step: OppskriftStep}){
+const RenderOppskriftStep = (step: OppskriftStep) => {
     return (
-        <>
-            <h3>{step.heading}</h3>
-            <p>{step.paragraph}</p>
-            <Row>
-                {step.pictures ? step.pictures.map(picture => {
-                    return <Col md="3"><RenderOppskriftPicture picture={picture} /></Col>
-                }) : null}
-            </Row>
-        </>
+        <Row>
+            <Col>
+                <h3>{step.heading}</h3>
+                <p>{step.paragraph}</p>
+                <Row>
+                    {step.pictures ? step.pictures.map((picture: OppskriftPictureProps, index: number) => {
+                        return <Col key={"picture"+index} md="3"><RenderOppskriftPicture {...picture} /></Col>
+                    }) : null}
+                </Row>
+            </Col>
+        </Row>
     );
 }
 
-export default function OppskriftLang({ oppskrift }: { oppskrift: OppskriftProps }) {
+const OppskriftLang = (oppskrift: OppskriftProps) => {
   return (
-    <>
-        <h1>{oppskrift.title}</h1>
-        <p>Lang versjon</p>
-        {oppskrift.steps.map(step => {
-            return <RenderOppskriftStep step={step} />
-        })}  
-    </>
+    <Container>
+        <Row>
+            <Col md="6">
+                <h1>{oppskrift.title}</h1>
+                <p>Lang versjon</p>
+            </Col>
+            <Col md="6">
+                <Stars {...oppskrift.scores} />
+            </Col>
+        </Row>
+        {oppskrift.steps.map((step: OppskriftStep, index: number) => {
+            return <RenderOppskriftStep key={"step"+index} {...step} />
+        })}
+    </Container>
   );
 }
+
+export default OppskriftLang;

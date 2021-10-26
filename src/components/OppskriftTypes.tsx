@@ -1,4 +1,4 @@
-export interface OppskriftPicture{
+export interface OppskriftPictureProps {
     path: string,
     caption?: string,
 }
@@ -6,7 +6,7 @@ export interface OppskriftPicture{
 export interface OppskriftStep{
     heading: string,
     paragraph: string,
-    pictures?: OppskriftPicture[],
+    pictures?: OppskriftPictureProps[],
 }
 
 export interface OppskriftScore{

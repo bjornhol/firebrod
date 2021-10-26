@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { grytebrod, havreflette } from './oppskrifter';
@@ -9,7 +7,6 @@ import { routerPaths } from "./router.path";
 export function Home() {
   return (
     <Container>
-      <h2>Columns with icons</h2>
       <Row>
         <Col className="feature">
           <OppskriftCard oppskrift={grytebrod} langPath={routerPaths.grytebrod} />

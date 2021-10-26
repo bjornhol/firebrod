@@ -1,0 +1,15 @@
+.theme-color{
+    color: rgb(204, 157, 96);
+}
+
+a, button {
+    color: rgb(99, 63, 17) !important;
+}
+
+.logo-image{
+    width: 3rem;
+}
+
+.wrapper{
+    margin-top: 1rem;
+}

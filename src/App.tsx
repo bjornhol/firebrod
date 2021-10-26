@@ -1,56 +1,46 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import './App.css';
-import { CounterApp } from './CounterApp';
-import { Home } from './Home';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { grytebrod, havreflette } from './oppskrifter';
-import OppskriftLang from './components/OppskriftLang';
-import { routerPaths } from './router.path';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import { Home } from "./Home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { grytebrod, havreflette } from "./oppskrifter";
+import OppskriftLang from "./components/OppskriftLang";
+import { routerPaths } from "./router.path";
+import { Container, Nav, Navbar, Image } from "react-bootstrap";
 
 function App() {
   return (
     <Router>
-    <div>
-      <ul>
-        <li key="a123">
-          <Link to="/">Home</Link>
-        </li>
-        <li key="b456">
-          <Link to={routerPaths.grytebrod}>Grytebrød</Link>
-        </li>
-        <li key="c789">
-          <Link to={routerPaths.havreflette}>Havreflette</Link>
-        </li>
-      </ul>
-
-      <hr />
-
-      {/*
-        A <Switch> looks through all its children <Route>
-        elements and renders the first one whose path
-        matches the current URL. Use a <Switch> any time
-        you have multiple routes, but you want only one
-        of them to render at a time
-      */}
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path={routerPaths.grytebrod}>
-          <OppskriftLang oppskrift={grytebrod} />
-        </Route>
-        <Route path={routerPaths.havreflette}>
-          <OppskriftLang oppskrift={havreflette} />
-        </Route>
-      </Switch>
-    </div>
-  </Router>
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Container>
+          <Navbar.Brand href="/"><Image className="logo-image" src="./logo.png" /></Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link key="abc123" href="/">Hjem</Nav.Link>
+              <Nav.Link key="def456" href={routerPaths.grytebrod}>Grytebrød</Nav.Link>
+              <Nav.Link key="ghi789" href={routerPaths.havreflette}>Havreflette</Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link key="jfh1011" href={routerPaths.tips}>Har du tips?</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <div className="wrapper">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path={routerPaths.grytebrod}>
+            <OppskriftLang {...grytebrod} />
+          </Route>
+          <Route path={routerPaths.havreflette}>
+            <OppskriftLang {...havreflette} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
