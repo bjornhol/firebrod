@@ -1,4 +1,4 @@
-.theme-color{
+.theme-color {
     color: rgb(204, 157, 96);
 }
 
@@ -6,10 +6,19 @@ a, button {
     color: rgb(99, 63, 17) !important;
 }
 
-.logo-image{
+.logo-image {
     width: 3rem;
 }
 
-.wrapper{
+.wrapper {
     margin-top: 1rem;
+}
+
+.card-logo {
+    /* width: 15rem; */
+    margin-bottom: 15px;
+}
+
+.feature {
+    margin-bottom: 15px;
 }

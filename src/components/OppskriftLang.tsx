@@ -39,7 +39,9 @@ const OppskriftLang = (oppskrift: OppskriftProps) => {
                 <p>Lang versjon</p>
             </Col>
             <Col md="6">
-                <Stars {...oppskrift.scores} />
+                <div className="float-end">
+                    <Stars {...oppskrift.scores} />
+                </div>
             </Col>
         </Row>
         {oppskrift.steps.map((step: OppskriftStep, index: number) => {

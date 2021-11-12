@@ -1,11 +1,15 @@
 .Stars {
-    max-width: 19rem;
-    display: flex;
+    max-width: 19rem;    
+    display: flex;    
 }
 
 @media screen and (max-width: 768px) {
     .Stars{
         flex-direction: column;
+    }
+
+    .Stars {
+        
     }
 }
 
@@ -18,7 +22,7 @@
 
 .Stars-stars{
     flex: 1;
-    /* min-width: 8.2rem; */
+    min-width: 8.2rem;
 }
 
 .Stars-stars > svg {

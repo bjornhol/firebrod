@@ -8,18 +8,18 @@ export function Home() {
   return (
     <Container>
       <Row>
-        <Col className="feature">
+        <Col className="feature" xs="12" sm="12" md="6">
           <OppskriftCard oppskrift={grytebrod} langPath={routerPaths.grytebrod} />
         </Col>
-        <Col className="feature">
+        <Col className="feature" xs="12" sm="12" md="6">
           <OppskriftCard oppskrift={havreflette} langPath={routerPaths.havreflette} />
         </Col>
       </Row>
       <Row>
-        <Col className="feature">
+        <Col className="feature" xs="12" sm="12" md="6">
           ...
         </Col>
-        <Col className="feature">
+        <Col className="feature" xs="12" sm="12" md="6">
           ...
         </Col>
       </Row>

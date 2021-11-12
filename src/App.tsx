@@ -7,6 +7,7 @@ import { grytebrod, havreflette } from "./oppskrifter";
 import OppskriftLang from "./components/OppskriftLang";
 import { routerPaths } from "./router.path";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
+import Tips from "./components/Tips";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path={routerPaths.havreflette}>
             <OppskriftLang {...havreflette} />
+          </Route>
+          <Route path={routerPaths.tips}>
+            <Tips />
           </Route>
         </Switch>
       </div>
