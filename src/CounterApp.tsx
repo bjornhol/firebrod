@@ -1,9 +1,9 @@
-import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './CounterApp.css';
+import { FC } from 'react';
 
-export function CounterApp() {
+const CounterApp: FC = () => {
   return (
     <div className="CounterApp">
       <header className="CounterApp-header">
@@ -54,3 +54,5 @@ export function CounterApp() {
     </div>
   );
 }
+
+export { CounterApp };
